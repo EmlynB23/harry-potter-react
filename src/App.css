@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+	background: #000 url("img/hp-bg.jpg") center center/cover;
+	height: 100vh;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Header */
+.center {
+	display: table;
+	margin: auto;
+	padding: 15px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Character Grid */
+
+.character-grid {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 2em;
 }
 
-.App-link {
-  color: #61dafb;
+/* Card */
+.card {
+	background-color: transparent;
+	height: 300px;
+	margin: 15px 10px;
+	perspective: 1000px;
+	width: 23%;
+	border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+	list-style: none;
+}
+
+li {
+	padding: 6px 0px;
+}
+
+.card-img {
+	height: 300px;
+	width: 100%;
+	object-fit: cover;
+}
+
+.card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.8s;
+	transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+	transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.card-back {
+	background-color: #333;
+	color: white;
+	padding: 20px;
+	transform: rotateY(180deg);
 }
